@@ -7,6 +7,7 @@ public class Tile : MonoBehaviour
 {
     public int PositionX { get; set; }
     public int PositionY { get; set; }
+    public TilesManager tilesManager { get; private set; }
 
     public Tile(int positionX, int positionY)
     {
@@ -18,5 +19,21 @@ public class Tile : MonoBehaviour
     {
         this.PositionX = positionX;
         this.PositionY = positionY;
+    }
+
+    private void Start()
+    {
+        tilesManager = this.transform.parent.GetComponent<TilesManager>();
+    }
+
+    private void OnMouseDown()
+    {
+        //测试方法：改变以给定 range 围绕当前 tile 的颜色
+        tilesManager.TestTilesColorChange(transform.GetComponent<Tile>());
+    }
+
+    public void ChangeColor()
+    {
+        transform.GetComponent<Renderer>().material.color = Color.red;
     }
 }

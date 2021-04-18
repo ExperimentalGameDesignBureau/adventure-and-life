@@ -15,7 +15,7 @@ public class TilesManager : MonoBehaviour
 
     private void Start()
     {
-        tiles = GenerateTiles(maxX, maxY);
+        tiles = GenerateTiles(length: maxX, width: maxY);
     }
 
     private Tile[,] GenerateTiles(int length, int width)
@@ -31,7 +31,7 @@ public class TilesManager : MonoBehaviour
                 tileGameObject.name = "Tile" + i + j;
                 tileGameObject.transform.position = vector3;
                 tiles[i, j] = tileGameObject.GetComponent<Tile>();
-                tiles[i, j].SetPosition(i, j);
+                tiles[i, j].SetPosition(positionX: i, positionY: j);
                 vector3.x++;
             }
             vector3.z++;
@@ -39,12 +39,12 @@ public class TilesManager : MonoBehaviour
         return tiles;
     }
 
-    public List<Tile> FindTilesWithinRange(int x, int y, int range)
+    public List<Tile> FindTilesWithinRange(Tile centralTile, int range)
     {
         List<Tile> tilesWithinRange = new List<Tile>();
         foreach (Tile t in tiles)
         {
-            if (Abs(t.PositionX - x) + Abs(t.PositionY - y) <= range)
+            if (Abs(t.PositionX - centralTile.PositionX) + Abs(t.PositionY - centralTile.PositionY) <= range)
             {
                 tilesWithinRange.Add(t);
             }
@@ -55,5 +55,18 @@ public class TilesManager : MonoBehaviour
     private int Abs(int i)
     {
         return i >= 0 ? i : -i;
+    }
+
+    private void ChangeTilesColor(List<Tile> tiles)
+    {
+        foreach(Tile t in tiles)
+        {
+            t.ChangeColor();
+        }
+    }
+
+    public void TestTilesColorChange(Tile centralTile)
+    {
+        ChangeTilesColor(FindTilesWithinRange(centralTile, 3));
     }
 }
