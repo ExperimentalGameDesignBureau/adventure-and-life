@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxX: 5
-  maxZ: 5
+  maxY: 5
   tilePrefab: {fileID: 769696408}
 --- !u!1 &1863842524
 GameObject:
@@ -514,7 +514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &2001202039
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -622,4 +622,3 @@ MonoBehaviour:
   meleeDefenceSkill: 0
   rangedAttackSkill: 0
   rangedDefenceSkill: 0
-  skills: []

@@ -16,12 +16,11 @@ public class UnitController : MonoBehaviour
         //在这里初始化各种玩意
     }
 
-    private void Update()
+    //在这里呼叫技能 UI
+    //通过 unit 的 skills 加载技能
+    //技能都要寻路，列出可以使用的对象（范围）
+    private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            //在这里呼叫技能 UI
-            //通过 unit 的 skills 加载技能
-        }
+
     }
 }
