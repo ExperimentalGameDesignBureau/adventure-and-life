@@ -26,14 +26,28 @@ public class Tile : MonoBehaviour
         tilesManager = this.transform.parent.GetComponent<TilesManager>();
     }
 
+
+    //测试方法：改变以给定 range 围绕当前 tile 的颜色
     private void OnMouseDown()
     {
-        //测试方法：改变以给定 range 围绕当前 tile 的颜色
-        tilesManager.TestTilesColorChange(transform.GetComponent<Tile>());
+        tilesManager.TestTilesColorChange(transform.GetComponent<Tile>(), true);
     }
 
-    public void ChangeColor()
+    private void OnMouseUp()
     {
-        transform.GetComponent<Renderer>().material.color = Color.red;
+        tilesManager.TestTilesColorChange(transform.GetComponent<Tile>(), false);
+    }
+
+    public void ChangeColor(string color)
+    {
+        switch (color)
+        {
+            case "red":
+                transform.GetComponent<Renderer>().material.color = Color.red;
+                break;
+            default:
+                transform.GetComponent<Renderer>().material.color = Color.white;
+                break;
+        }
     }
 }

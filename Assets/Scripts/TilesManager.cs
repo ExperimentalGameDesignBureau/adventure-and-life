@@ -57,16 +57,20 @@ public class TilesManager : MonoBehaviour
         return i >= 0 ? i : -i;
     }
 
-    private void ChangeTilesColor(List<Tile> tiles)
+    private void ChangeTilesColor(List<Tile> tiles, string color)
     {
         foreach(Tile t in tiles)
         {
-            t.ChangeColor();
+            t.ChangeColor(color);
         }
     }
 
-    public void TestTilesColorChange(Tile centralTile)
+    public void TestTilesColorChange(Tile centralTile, bool onMouseDown)
     {
-        ChangeTilesColor(FindTilesWithinRange(centralTile, 3));
+        if (onMouseDown)
+            ChangeTilesColor(FindTilesWithinRange(centralTile, 3), "red");
+        else
+            ChangeTilesColor(FindTilesWithinRange(centralTile, 3), "default");
+
     }
 }
