@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WarfareSimulator
+namespace WarfareSimulator.old
 {
-    public class Item
+    public class WarfareManagerSimple : MonoBehaviour
     {
-        public string name;
+
     }
 }
+

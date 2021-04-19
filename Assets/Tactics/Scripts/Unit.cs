@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WarfareSimulator.old;
 
-namespace WarfareSimulator
+namespace WarfareSimulator.old
 {
 
     //unit's template
