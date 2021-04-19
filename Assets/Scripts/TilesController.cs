@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //控制 tiles 的生成
-public class TilesManager : MonoBehaviour
+public class TilesController : MonoBehaviour
 {
+    //要不要给这个 controller 写个 singleton?
     //基于数量生成 tiles，之后改成 constructure
     public int maxX = 5;//x
     public int maxY = 5;//z
@@ -57,14 +58,6 @@ public class TilesManager : MonoBehaviour
         return i >= 0 ? i : -i;
     }
 
-    private void ChangeTilesColor(List<Tile> tiles, string color)
-    {
-        foreach(Tile t in tiles)
-        {
-            t.ChangeColor(color);
-        }
-    }
-
     public void TestTilesColorChange(Tile centralTile, bool onMouseDown)
     {
         if (onMouseDown)
@@ -72,5 +65,13 @@ public class TilesManager : MonoBehaviour
         else
             ChangeTilesColor(FindTilesWithinRange(centralTile, 3), "default");
 
+    }
+
+    private void ChangeTilesColor(List<Tile> tiles, string color)
+    {
+        foreach(Tile t in tiles)
+        {
+            t.ChangeColor(color);
+        }
     }
 }

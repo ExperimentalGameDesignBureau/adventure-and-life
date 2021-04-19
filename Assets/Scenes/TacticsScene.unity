@@ -307,8 +307,8 @@ GameObject:
   - component: {fileID: 1166779982}
   - component: {fileID: 1166779983}
   m_Layer: 0
-  m_Name: TilesManager
-  m_TagString: Untagged
+  m_Name: TilesController
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 1863842526}
   m_Layer: 0
   m_Name: WarfareManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

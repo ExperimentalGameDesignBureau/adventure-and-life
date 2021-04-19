@@ -10,17 +10,35 @@ public class UnitController : MonoBehaviour
 {
     //当前控制器所控制的 unit
     public Unit unit;
+    //当前 unit 所在的 tile，如存在
+    public Tile tile;
 
     private void Start()
     {
         //在这里初始化各种玩意
     }
 
+    //测试方法：改变以给定 range 围绕当前 tile 的颜色
+
     //在这里呼叫技能 UI
     //通过 unit 的 skills 加载技能
     //技能都要寻路，列出可以使用的对象（范围）
     private void OnMouseDown()
     {
+        DisplaySkillRange(true);
+    }
 
+    private void OnMouseUp()
+    {
+        DisplaySkillRange(false);
+    }
+
+    public void DisplaySkillRange(bool onMouseDown)
+    {
+        if (transform.parent.name.Contains("Tile"))
+        {
+            tile = transform.parent.GetComponent<Tile>();
+            tile.tilescontroller.TestTilesColorChange(tile.transform.GetComponent<Tile>(), onMouseDown);
+        }
     }
 }

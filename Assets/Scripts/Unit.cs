@@ -19,4 +19,5 @@ public class Unit : MonoBehaviour
     public int rangedDefenceSkill;
 
     public Skill[] skills;
+
 }

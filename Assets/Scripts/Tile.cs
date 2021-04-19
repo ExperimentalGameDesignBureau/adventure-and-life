@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour
 {
     public int PositionX { get; set; }
     public int PositionY { get; set; }
-    public TilesManager tilesManager { get; private set; }
+    public TilesController tilescontroller { get; private set; }
 
     public Tile(int positionX, int positionY)
     {
@@ -23,20 +23,20 @@ public class Tile : MonoBehaviour
 
     private void Start()
     {
-        tilesManager = this.transform.parent.GetComponent<TilesManager>();
+        //tilescontroller = this.transform.parent.GetComponent<TilesController>();
+        tilescontroller = GameObject.FindGameObjectWithTag("GameController").GetComponent<TilesController>();
     }
 
 
-    //测试方法：改变以给定 range 围绕当前 tile 的颜色
-    private void OnMouseDown()
-    {
-        tilesManager.TestTilesColorChange(transform.GetComponent<Tile>(), true);
-    }
+    //private void OnMouseDown()
+    //{
+    //    tilescontroller.TestTilesColorChange(transform.GetComponent<Tile>(), true);
+    //}
 
-    private void OnMouseUp()
-    {
-        tilesManager.TestTilesColorChange(transform.GetComponent<Tile>(), false);
-    }
+    //private void OnMouseUp()
+    //{
+    //    tilescontroller.TestTilesColorChange(transform.GetComponent<Tile>(), false);
+    //}
 
     public void ChangeColor(string color)
     {
